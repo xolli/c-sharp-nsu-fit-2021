@@ -4,11 +4,11 @@ namespace lab1
 {
     public class Field
     {
-        public HashSet<Worm> Worms { get; }
+        public List<Worm> Worms { get; }
 
         public Field()
         {
-            Worms = new HashSet<Worm>();
+            Worms = new List<Worm>();
         }
 
         public bool IsFree(Coord coord)

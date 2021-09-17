@@ -1,12 +1,13 @@
 using System;
 using System.IO;
+using System.Linq;
 
 namespace lab1
 {
     public class ClockwiseMoveProcess
     {
-        private Field _field;
-        private string _filename;
+        private readonly Field _field;
+        private readonly string _filename;
         private StreamWriter _file;
 
         public ClockwiseMoveProcess(string filename)
@@ -17,13 +18,15 @@ namespace lab1
         }
         public void Start()
         {
-            _file = new StreamWriter(_filename);
-            for (int i = 0; i < 100; ++i)
+            using (_file = new StreamWriter(_filename))
             {
-                Move(i);
-                PrintWorms();
+                for (int i = 0; i < 100; ++i)
+                {
+                    Move(i);
+                    PrintWorms();
+                }
+                _file.Close();   
             }
-            _file.Close();
         }
 
         private void FirstStep()
@@ -41,22 +44,22 @@ namespace lab1
             switch (moveIndex % 8)
             {
                 case 0:
-                    moveRight();
+                    MoveRight();
                     break;
                 case 1:
-                    moveRight();
+                    MoveRight();
                     break;
                 case 2:
-                    moveDown();
+                    MoveDown();
                     break;
                 case 3:
-                    moveDown();
+                    MoveDown();
                     break;
                 case 4:
-                    moveLeft();
+                    MoveLeft();
                     break;
                 case 5:
-                    moveLeft();
+                    MoveLeft();
                     break;
                 case 6:
                     moveUp();
@@ -75,7 +78,7 @@ namespace lab1
             }
         }
         
-        private void moveRight()
+        private void MoveRight()
         {
             foreach (Worm worm in _field.Worms)
             {
@@ -83,7 +86,7 @@ namespace lab1
             }
         }
         
-        private void moveDown()
+        private void MoveDown()
         {
             foreach (Worm worm in _field.Worms)
             {
@@ -91,7 +94,7 @@ namespace lab1
             }
         }
         
-        private void moveLeft()
+        private void MoveLeft()
         {
             foreach (Worm worm in _field.Worms)
             {
@@ -101,12 +104,12 @@ namespace lab1
         
         private void PrintWorms()
         {
-            _file.Write("Worms:[");
+            Console.Write("Worms:[");
             foreach (Worm worm in _field.Worms)
             {
-                _file.Write(worm.Name + '(' + worm.Coord.X + ',' + worm.Coord.Y + ')');
+                Console.Write(worm.Name + '(' + worm.Coord.X + ',' + worm.Coord.Y + ')');
             }
-            _file.WriteLine("]");
+            Console.WriteLine("]");
         }
     }
 }

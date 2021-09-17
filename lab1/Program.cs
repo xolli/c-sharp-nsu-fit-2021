@@ -6,7 +6,7 @@ namespace lab1
     {
         public static void Main(string[] args)
         {
-            ClockwiseMoveProcess process = new ClockwiseMoveProcess("moves.txt");
+            var process = new ClockwiseMoveProcess("moves.txt");
             process.Start();
         }
     }
