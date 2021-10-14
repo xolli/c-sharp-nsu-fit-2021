@@ -1,11 +1,10 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
 
 namespace lab3
 {
-    public class PrintService : IHostedService
+    public class PrintService : IPrintService
     {
         private readonly Field _field;
         

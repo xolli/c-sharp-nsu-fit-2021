@@ -7,14 +7,14 @@ using Microsoft.Extensions.Hosting;
 
 namespace lab3
 {
-    public class WormLogicService : IHostedService
+    public class WormLogicService : IWormLogicService
     {
         
         private readonly Field _field;
-        private readonly GenerateNameService _generateNameService;
+        private readonly IGenerateNameService _generateNameService;
         private static readonly Random RandomSource = new Random();
 
-        public WormLogicService(Field field, GenerateNameService generateNameService)
+        public WormLogicService(Field field, IGenerateNameService generateNameService)
         {
             _field = field;
             _generateNameService = generateNameService;
@@ -140,7 +140,7 @@ namespace lab3
         private String GenerateWormName(CancellationToken cancellationToken)
         {
             Task<String> generatedName = (Task<string>) _generateNameService.StartAsync(cancellationToken);
-            return generatedName.Result;
+            return generatedName.GetAwaiter().GetResult();
         }
     }
 }

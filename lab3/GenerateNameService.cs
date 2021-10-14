@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace lab3
 {
-    public class GenerateNameService : IHostedService
+    public class GenerateNameService : IGenerateNameService
     {
         private readonly Field _field;
         private static readonly Random RandomSource = new Random();

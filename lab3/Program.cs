@@ -14,13 +14,12 @@ namespace lab3
             return Host.CreateDefaultBuilder(args).ConfigureServices((hostContext, services) =>
                 {
                     services.AddSingleton<Field>();
-                    services.AddScoped<FoodGeneratorService>();
-                    services.AddScoped<WormLogicService>();
-                    services.AddScoped<PrintService>();
-                    services.AddScoped<GenerateNameService>();
+                    services.AddScoped<IFoodGeneratorService, FoodGeneratorService>();
+                    services.AddScoped<IWormLogicService, WormLogicService>();
+                    services.AddScoped<IPrintService, PrintService>();
+                    services.AddScoped<IGenerateNameService, GenerateNameService>();
                     services.AddHostedService<WorldSimulatorService>();
                 });
-
         }
 
     } 

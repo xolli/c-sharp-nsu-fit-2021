@@ -8,13 +8,13 @@ namespace lab3
 { public class WorldSimulatorService : BackgroundService
     {
         private readonly ILogger<WorldSimulatorService> _logger;
-        private readonly FoodGeneratorService _foodGeneratorService;
-        private readonly WormLogicService _wormLogicService;
-        private readonly PrintService _printService;
+        private readonly IFoodGeneratorService _foodGeneratorService;
+        private readonly IWormLogicService _wormLogicService;
+        private readonly IPrintService _printService;
         private readonly Field _field;
 
-        public WorldSimulatorService(FoodGeneratorService foodGeneratorService, WormLogicService wormLogicService,
-            PrintService printService, Field field, ILogger<WorldSimulatorService> logger)
+        public WorldSimulatorService(IFoodGeneratorService foodGeneratorService, IWormLogicService wormLogicService,
+            IPrintService printService, Field field, ILogger<WorldSimulatorService> logger)
         {
             _foodGeneratorService = foodGeneratorService;
             _wormLogicService = wormLogicService;

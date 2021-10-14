@@ -177,7 +177,6 @@ namespace lab2
             {
                 if (lastPermutation)
                 {
-                    Console.WriteLine("This is a very strange =/");
                     direction = Direction.Nothing;
                     return false;
                 }

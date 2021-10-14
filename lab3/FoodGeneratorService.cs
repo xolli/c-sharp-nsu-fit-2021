@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace lab3
 {
-    public class FoodGeneratorService : IHostedService
+    public class FoodGeneratorService : IFoodGeneratorService
     {
         private Field _field;
         private static readonly Random RandomSource = new Random();

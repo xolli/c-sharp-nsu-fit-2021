@@ -58,13 +58,6 @@ namespace lab2
             }
         }
 
-        private void MoveTo(Worm worm, Coord moveToCoord) {
-            if (_field.IsFree(moveToCoord))
-            {
-                
-            }
-        }
-
         private void MakeAction()
         {
             List<Worm> newWorms = new List<Worm>();

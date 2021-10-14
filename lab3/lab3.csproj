@@ -218,6 +218,10 @@
         <Compile Include="Gamelogic\Worm.cs" />
         <Compile Include="Gamelogic\WormLogic.cs" />
         <Compile Include="GenerateNameService.cs" />
+        <Compile Include="IFoodGeneratorService.cs" />
+        <Compile Include="IGenerateNameService.cs" />
+        <Compile Include="IPrintService.cs" />
+        <Compile Include="IWormLogicService.cs" />
         <Compile Include="PrintService.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
