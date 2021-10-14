@@ -13,11 +13,13 @@ namespace lab3
         private readonly Field _field;
         private readonly IGenerateNameService _generateNameService;
         private static readonly Random RandomSource = new Random();
+        private static WormLogic _wormLogic;
 
-        public WormLogicService(Field field, IGenerateNameService generateNameService)
+        public WormLogicService(Field field, IGenerateNameService generateNameService, WormLogic wormLogic)
         {
             _field = field;
             _generateNameService = generateNameService;
+            _wormLogic = wormLogic;
         }
         public Task StartAsync(CancellationToken cancellationToken)
         {
@@ -68,29 +70,29 @@ namespace lab3
             List<Worm> newWorms = new List<Worm>();
             foreach (var worm in _field.Worms)
             {
-                var action = WormLogic.MakeMove(_field, worm);
+                var action = _wormLogic.MakeMove(_field, worm);
                 switch (action)
                 {
                     case WormAction.MoveUp:
-                        if (_field.IsFree(new Coord(worm.Coord.X, worm.Coord.Y - 1)))
+                        if (_field.NoWorm(new Coord(worm.Coord.X, worm.Coord.Y - 1)))
                         {
                             worm.Coord.Y -= 1;
                         }
                         break;
                     case WormAction.MoveLeft:
-                        if (_field.IsFree(new Coord(worm.Coord.X - 1, worm.Coord.Y)))
+                        if (_field.NoWorm(new Coord(worm.Coord.X - 1, worm.Coord.Y)))
                         {
                             worm.Coord.X -= 1;
                         }
                         break;
                     case WormAction.MoveDown:
-                        if (_field.IsFree(new Coord(worm.Coord.X, worm.Coord.Y + 1)))
+                        if (_field.NoWorm(new Coord(worm.Coord.X, worm.Coord.Y + 1)))
                         {
                             worm.Coord.Y += 1;
                         }
                         break;
                     case WormAction.MoveRight:
-                        if (_field.IsFree(new Coord(worm.Coord.X + 1, worm.Coord.Y)))
+                        if (_field.NoWorm(new Coord(worm.Coord.X + 1, worm.Coord.Y)))
                         {
                             worm.Coord.X += 1;
                         }

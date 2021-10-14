@@ -28,7 +28,7 @@ namespace lab3
         }
 
         // Finding the nearest food and going to it
-        public static WormAction MakeMove(Field field, Worm worm)
+        public virtual WormAction MakeMove(Field field, Worm worm)
         {
             Food nearestFood = FindNearestFood(worm, field.Foods);
             if (nearestFood == null)
@@ -137,7 +137,7 @@ namespace lab3
                         throw new Exception("Incorrect route");
                 }
 
-                if (!field.IsFree(curPos))
+                if (!field.NoWorm(curPos))
                 {
                     return false;
                 }

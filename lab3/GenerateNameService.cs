@@ -8,13 +8,7 @@ namespace lab3
 {
     public class GenerateNameService : IGenerateNameService
     {
-        private readonly Field _field;
         private static readonly Random RandomSource = new Random();
-
-        public GenerateNameService(Field field)
-        {
-            _field = field;
-        }
         
         public Task StartAsync(CancellationToken cancellationToken)
         {

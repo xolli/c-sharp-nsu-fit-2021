@@ -2,10 +2,10 @@ namespace lab3
 {
     public class Coord
     { 
-        public Coord(int startX, int startY)
+        public Coord(int x, int y)
         {
-            X = startX;
-            Y = startY;
+            X = x;
+            Y = y;
         }
 
         public int X { get; set; }
