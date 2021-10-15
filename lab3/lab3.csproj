@@ -215,8 +215,9 @@
         <Compile Include="Gamelogic\Coord.cs" />
         <Compile Include="Gamelogic\Field.cs" />
         <Compile Include="Gamelogic\Food.cs" />
+        <Compile Include="Gamelogic\IWormLogic.cs" />
         <Compile Include="Gamelogic\Worm.cs" />
-        <Compile Include="Gamelogic\WormLogic.cs" />
+        <Compile Include="Gamelogic\WormLogicNearFood.cs" />
         <Compile Include="GenerateNameService.cs" />
         <Compile Include="IFoodGeneratorService.cs" />
         <Compile Include="IGenerateNameService.cs" />

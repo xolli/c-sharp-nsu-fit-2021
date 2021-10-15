@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
 
 namespace lab3
 {
@@ -12,14 +10,13 @@ namespace lab3
         
         private readonly Field _field;
         private readonly IGenerateNameService _generateNameService;
-        private static readonly Random RandomSource = new Random();
-        private static WormLogic _wormLogic;
+        private static IWormLogic _wormLogicNearFood;
 
-        public WormLogicService(Field field, IGenerateNameService generateNameService, WormLogic wormLogic)
+        public WormLogicService(Field field, IGenerateNameService generateNameService, IWormLogic wormLogicNearFood)
         {
             _field = field;
             _generateNameService = generateNameService;
-            _wormLogic = wormLogic;
+            _wormLogicNearFood = wormLogicNearFood;
         }
         public Task StartAsync(CancellationToken cancellationToken)
         {
@@ -70,7 +67,7 @@ namespace lab3
             List<Worm> newWorms = new List<Worm>();
             foreach (var worm in _field.Worms)
             {
-                var action = _wormLogic.MakeMove(_field, worm);
+                var action = _wormLogicNearFood.MakeMove(_field, worm);
                 switch (action)
                 {
                     case WormAction.MoveUp:

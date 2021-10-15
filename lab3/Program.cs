@@ -14,7 +14,7 @@ namespace lab3
             return Host.CreateDefaultBuilder(args).ConfigureServices((hostContext, services) =>
                 {
                     services.AddSingleton<Field>();
-                    services.AddSingleton<WormLogic>();
+                    services.AddSingleton<IWormLogic, WormLogicNearFood>();
                     services.AddScoped<IFoodGeneratorService, FoodGeneratorService>();
                     services.AddScoped<IWormLogicService, WormLogicService>();
                     services.AddScoped<IPrintService, PrintService>();
