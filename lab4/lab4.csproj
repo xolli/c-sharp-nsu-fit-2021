@@ -211,12 +211,10 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Environment.cs" />
         <Compile Include="FoodGeneratorTests.cs" />
         <Compile Include="GenerateNameTest.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="WormLogicIndividual.cs" />
-        <Compile Include="WormLogicNothing.cs" />
         <Compile Include="WormLogicTest.cs" />
         <Compile Include="WormLogicMoveRight.cs" />
     </ItemGroup>

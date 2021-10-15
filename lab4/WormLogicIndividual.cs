@@ -2,9 +2,9 @@ using lab3;
 
 namespace lab4
 {
-    public class WormLogicIndividual : WormLogic
+    public class WormLogicIndividual : IWormLogic
     {
-        public override WormAction MakeMove(Field field, Worm worm)
+        public WormAction MakeMove(Field field, Worm worm)
         {
             switch (worm.Name.Substring(0, 2))
             {

@@ -2,9 +2,9 @@ using lab3;
 
 namespace lab4
 {
-    public class WormLogicMoveRight : WormLogic
+    public class WormLogicMoveRight : IWormLogic
     {
-        public override WormAction MakeMove(Field field, Worm worm)
+        public WormAction MakeMove(Field field, Worm worm)
         {
             return WormAction.MoveRight;
         }

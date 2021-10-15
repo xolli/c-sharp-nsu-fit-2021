@@ -14,9 +14,10 @@ namespace lab4
             Coord wormCoord = new Coord(0, 0);
             field.Worms.Add(new Worm(wormCoord.X, wormCoord.Y, "testName", 999));
             field.Foods.Add(new Food(wormCoord));
-            WormLogicService service = new WormLogicService(field, new GenerateNameService(), new WormLogic());
+            WormLogicService service = new WormLogicService(field, new GenerateNameService(), new WormLogicNearFood());
             service.StartAsync(new CancellationToken(false));
             Assert.Zero(field.Foods.Count);
+            Assert.AreEqual(field.Worms[0].Health, 999 - 1 + 10);
         }
 
         [Test]
@@ -26,7 +27,7 @@ namespace lab4
             field.Worms.Add(new Worm(0, 0, "testName", 999));
             field.Foods.Add(new Food(0, 10));
             field.Foods.Add(new Food(0, -20));
-            WormLogicService service = new WormLogicService(field, new GenerateNameService(), new WormLogic());
+            WormLogicService service = new WormLogicService(field, new GenerateNameService(), new WormLogicNearFood());
             for (int i = 0; i < 10; ++i)
             {
                 service.StartAsync(new CancellationToken(false));
