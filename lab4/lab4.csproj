@@ -5,7 +5,7 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{A2B94A60-10A6-452A-8459-A6DAA9847D4E}</ProjectGuid>
+        <ProjectGuid>{2D909029-9253-4AC7-8896-EE055246AC3C}</ProjectGuid>
         <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -215,8 +215,8 @@
         <Compile Include="GenerateNameTest.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="WormLogicIndividual.cs" />
-        <Compile Include="WormLogicTest.cs" />
         <Compile Include="WormLogicMoveRight.cs" />
+        <Compile Include="WormLogicTest.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\lab3\lab3.csproj">
