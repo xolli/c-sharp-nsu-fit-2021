@@ -219,6 +219,10 @@
         <Compile Include="WormLogicTest.cs" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\lab2\lab2.csproj">
+        <Project>{e058b49b-0c87-46ec-a9f1-a9030407ed0a}</Project>
+        <Name>lab2</Name>
+      </ProjectReference>
       <ProjectReference Include="..\lab3\lab3.csproj">
         <Project>{ea66af2e-4190-477a-9dd0-74a7900b6467}</Project>
         <Name>lab3</Name>

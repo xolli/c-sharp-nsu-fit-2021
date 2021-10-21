@@ -1,6 +1,7 @@
 using System.Threading;
 using lab3;
 using NUnit.Framework;
+using lab2;
 
 namespace lab4
 {

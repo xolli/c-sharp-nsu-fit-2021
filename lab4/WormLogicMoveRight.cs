@@ -1,3 +1,4 @@
+using lab2;
 using lab3;
 
 namespace lab4
