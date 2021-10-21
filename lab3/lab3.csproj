@@ -212,12 +212,6 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="FoodGeneratorService.cs" />
-        <Compile Include="Gamelogic\Coord.cs" />
-        <Compile Include="Gamelogic\Field.cs" />
-        <Compile Include="Gamelogic\Food.cs" />
-        <Compile Include="Gamelogic\IWormLogic.cs" />
-        <Compile Include="Gamelogic\Worm.cs" />
-        <Compile Include="Gamelogic\WormLogicNearFood.cs" />
         <Compile Include="GenerateNameService.cs" />
         <Compile Include="IFoodGeneratorService.cs" />
         <Compile Include="IGenerateNameService.cs" />
@@ -231,6 +225,15 @@
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\lab2\lab2.csproj">
+        <Project>{e058b49b-0c87-46ec-a9f1-a9030407ed0a}</Project>
+        <Name>lab2</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Gamelogic" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0-rc.2.21480.5\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0-rc.2.21480.5\build\Microsoft.Extensions.Logging.Abstractions.targets')" />

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using lab2;
 
 namespace lab3
 {
@@ -10,13 +11,13 @@ namespace lab3
         
         private readonly Field _field;
         private readonly IGenerateNameService _generateNameService;
-        private static IWormLogic _wormLogicNearFood;
+        private static IWormLogic _wormLogic;
 
-        public WormLogicService(Field field, IGenerateNameService generateNameService, IWormLogic wormLogicNearFood)
+        public WormLogicService(Field field, IGenerateNameService generateNameService, IWormLogic wormLogic)
         {
             _field = field;
             _generateNameService = generateNameService;
-            _wormLogicNearFood = wormLogicNearFood;
+            _wormLogic = wormLogic;
         }
         public Task StartAsync(CancellationToken cancellationToken)
         {
@@ -67,7 +68,7 @@ namespace lab3
             List<Worm> newWorms = new List<Worm>();
             foreach (var worm in _field.Worms)
             {
-                var action = _wormLogicNearFood.MakeMove(_field, worm);
+                var action = _wormLogic.MakeMove(_field, worm);
                 switch (action)
                 {
                     case WormAction.MoveUp:
