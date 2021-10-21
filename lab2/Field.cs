@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace lab2
@@ -13,7 +14,7 @@ namespace lab2
             Foods = new List<Food>();
         }
 
-        public bool IsFree(Coord coord)
+        public bool NoWorm(Coord coord)
         {
             foreach (Worm worm in Worms)
             {
@@ -24,6 +25,24 @@ namespace lab2
             }
 
             return true;
+        }
+
+        public bool NoFood(Coord coord)
+        {
+            foreach (Food food in Foods)
+            {
+                if (food.Coord.X == coord.X & food.Coord.Y == coord.Y)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public bool IsFree(Coord coord)
+        {
+            return NoFood(coord) && NoWorm(coord);
         }
 
         public bool GetFood(Coord coord, out Food food)

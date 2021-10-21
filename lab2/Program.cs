@@ -1,4 +1,5 @@
 ﻿using System;
+using lab3;
 
 namespace lab2
 {
@@ -6,7 +7,7 @@ namespace lab2
     {
         public static void Main(string[] args)
         {
-            var process = new NormalLifeProcess();
+            var process = new NormalLifeProcess(new WormLogicNearFood());
             process.Start();
         }
     }

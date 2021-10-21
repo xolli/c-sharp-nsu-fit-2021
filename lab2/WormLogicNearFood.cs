@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using lab2;
 
 namespace lab3
 {

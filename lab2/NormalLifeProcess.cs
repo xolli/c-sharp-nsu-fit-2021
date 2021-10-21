@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using lab3;
 
 namespace lab2
 {
@@ -8,11 +9,13 @@ namespace lab2
     {
         private readonly Field _field;
         private static readonly Random RandomSource = new Random();
+        private static IWormLogic _wormLogicNearFood;
 
-        public NormalLifeProcess()
+        public NormalLifeProcess(IWormLogic wormLogic)
         {
             _field = new Field();
             _field.Worms.Add(new Worm(0, 0, "John", 25));
+            _wormLogicNearFood = wormLogic;
         }
 
         public void Start()
@@ -63,29 +66,29 @@ namespace lab2
             List<Worm> newWorms = new List<Worm>();
             foreach (var worm in _field.Worms)
             {
-                var action = WormLogic.MakeMove(_field, worm);
+                var action = _wormLogicNearFood.MakeMove(_field, worm);
                 switch (action)
                 {
                     case WormAction.MoveUp:
-                        if (_field.IsFree(new Coord(worm.Coord.X, worm.Coord.Y - 1)))
+                        if (_field.NoWorm(new Coord(worm.Coord.X, worm.Coord.Y - 1)))
                         {
                             worm.Coord.Y -= 1;
                         }
                         break;
                     case WormAction.MoveLeft:
-                        if (_field.IsFree(new Coord(worm.Coord.X - 1, worm.Coord.Y)))
+                        if (_field.NoWorm(new Coord(worm.Coord.X - 1, worm.Coord.Y)))
                         {
                             worm.Coord.X -= 1;
                         }
                         break;
                     case WormAction.MoveDown:
-                        if (_field.IsFree(new Coord(worm.Coord.X, worm.Coord.Y + 1)))
+                        if (_field.NoWorm(new Coord(worm.Coord.X, worm.Coord.Y + 1)))
                         {
                             worm.Coord.Y += 1;
                         }
                         break;
                     case WormAction.MoveRight:
-                        if (_field.IsFree(new Coord(worm.Coord.X + 1, worm.Coord.Y)))
+                        if (_field.NoWorm(new Coord(worm.Coord.X + 1, worm.Coord.Y)))
                         {
                             worm.Coord.X += 1;
                         }

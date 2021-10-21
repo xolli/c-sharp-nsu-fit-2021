@@ -1,3 +1,5 @@
+using lab2;
+
 namespace lab3
 {
     public interface IWormLogic
